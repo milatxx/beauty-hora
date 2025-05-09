@@ -2,22 +2,26 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\User;  // vergeet dit niet als je User::factory gebruikt
+// gebruik hier ook je DefaultAdminSeeder
+use Database\Seeders\DefaultAdminSeeder;
 
 class DatabaseSeeder extends Seeder
 {
     /**
      * Seed the application's database.
      */
-    public function run(): void
+    public function run()
     {
-        // User::factory(10)->create();
+        // Eerst de default admin
+        $this->call(DefaultAdminSeeder::class);
 
+        // (optioneel) dan een test-user via factory
         User::factory()->create([
-            'name' => 'Test User',
+            'name'  => 'Test User',
             'email' => 'test@example.com',
+            'password' => bcrypt('secret123'), // of Hash::make()
         ]);
     }
 }
