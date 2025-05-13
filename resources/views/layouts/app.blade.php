@@ -28,9 +28,10 @@
             @endisset
 
             <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
+<main class="max-w-2xl mx-auto p-6">
+    @yield('content')
+</main>
+
         </div>
     </body>
 </html>

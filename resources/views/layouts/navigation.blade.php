@@ -33,6 +33,11 @@
                         </button>
                     </x-slot>
 
+                    <x-dropdown-link :href="route('profiles.show', Auth::user())">
+                        Mijn profiel
+                    </x-dropdown-link>
+
+
                     <x-slot name="content">
                         <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Profile') }}
