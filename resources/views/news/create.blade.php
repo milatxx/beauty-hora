@@ -1,53 +1,29 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl">
-            {{ __('Nieuw nieuwsitem') }}
-        </h2>
-    </x-slot>
+    <h1>Nieuws toevoegen</h1>
 
-    <div class="py-6">
-        <div class="max-w-3xl mx-auto bg-white p-6 rounded shadow">
-            <form action="{{ route('news.store') }}" method="POST" enctype="multipart/form-data">
-                @csrf
+    @if ($errors->any())
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li class="text-red-600">{{ $error }}</li>
+            @endforeach
+        </ul>
+    @endif
 
-                {{-- Titel --}}
-                <div class="mb-4">
-                    <label for="title" class="block font-medium">Titel</label>
-                    <input type="text" name="title" id="title"
-                           class="mt-1 block w-full border-gray-300 rounded"
-                           value="{{ old('title') }}">
-                    @error('title')<p class="text-red-600">{{ $message }}</p>@enderror
-                </div>
+    <form method="POST" action="{{ route('news.store') }}" enctype="multipart/form-data">
+        @csrf
 
-                {{-- Inhoud --}}
-                <div class="mb-4">
-                    <label for="content" class="block font-medium">Inhoud</label>
-                    <textarea name="content" id="content" rows="6"
-                              class="mt-1 block w-full border-gray-300 rounded">{{ old('content') }}</textarea>
-                    @error('content')<p class="text-red-600">{{ $message }}</p>@enderror
-                </div>
+        <label for="title">Titel:</label>
+        <input type="text" name="title" value="{{ old('title') }}" required>
 
-                {{-- Afbeelding --}}
-                <div class="mb-4">
-                    <label for="image" class="block font-medium">Afbeelding (optioneel)</label>
-                    <input type="file" name="image" id="image" class="mt-1">
-                    @error('image')<p class="text-red-600">{{ $message }}</p>@enderror
-                </div>
+        <label for="content">Inhoud:</label>
+        <textarea name="content" required>{{ old('content') }}</textarea>
 
-                {{-- Publicatiedatum --}}
-                <div class="mb-6">
-                    <label for="published_at" class="block font-medium">Publicatiedatum</label>
-                    <input type="date" name="published_at" id="published_at"
-                           class="mt-1 block border-gray-300 rounded"
-                           value="{{ old('published_at') }}">
-                    @error('published_at')<p class="text-red-600">{{ $message }}</p>@enderror
-                </div>
+        <label for="published_at">Publicatiedatum:</label>
+        <input type="date" name="published_at" value="{{ old('published_at') }}">
 
-                <button type="submit"
-                        class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
-                    Opslaan
-                </button>
-            </form>
-        </div>
-    </div>
+        <label for="image">Afbeelding (optioneel):</label>
+        <input type="file" name="image">
+
+        <button type="submit">Opslaan</button>
+    </form>
 </x-app-layout>

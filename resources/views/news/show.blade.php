@@ -1,21 +1,15 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl">{{ $news->title }}</h2>
-    </x-slot>
+    <h1>{{ $news->title }}</h1>
 
-    <div class="py-6 max-w-3xl mx-auto space-y-6">
-        @if($news->image)
-            <img src="{{ asset('storage/' . $news->image) }}"
-                 alt=""
-                 class="w-full rounded shadow">
-        @endif
+    <p>{{ $news->content }}</p>
 
-        <p class="text-gray-500">
-            Gepubliceerd op {{ $news->published_at->format('d-m-Y') }}
-        </p>
+    @if($news->image)
+        <img src="{{ asset('storage/' . $news->image) }}" alt="afbeelding" style="max-width: 300px;">
+    @endif
 
-        <div class="prose">
-            {!! nl2br(e($news->content)) !!}
-        </div>
-    </div>
+    <p>Geplaatst op: {{ $news->published_at }}</p>
+
+    @can('update', $news)
+        <a href="{{ route('news.edit', $news) }}">✏️ Bewerken</a>
+    @endcan
 </x-app-layout>
