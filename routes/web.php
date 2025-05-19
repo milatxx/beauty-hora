@@ -6,6 +6,9 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Models\FaqCategory;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\BookingController;
+
 
 
 /*
@@ -91,6 +94,13 @@ Route::get('/faq', function () {
  // Contactpagina
 Route::get('/contact', [ContactController::class, 'create'])->name('contact.create');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+
+// Servicepagina
+Route::get('/services', [ServiceController::class, 'index']);
+Route::get('/bookings/create', [BookingController::class, 'create'])->middleware('auth');
+Route::post('/bookings', [BookingController::class, 'store'])->middleware('auth');
+Route::get('/admin/bookings', [BookingController::class, 'adminIndex'])->middleware('auth');
+
 
  
 

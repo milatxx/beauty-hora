@@ -17,7 +17,12 @@
 </head>
 <body class="font-sans antialiased bg-white text-black">
     <div class="min-h-screen">
-        <x-navbar />
+    <nav class="bg-gray-100 p-4 border-b mb-4 flex gap-4">
+    <a href="/services" class="text-blue-600 hover:underline">Diensten</a>
+    <a href="/bookings/create" class="text-blue-600 hover:underline">Boek nu</a>
+    <a href="/admin/bookings" class="text-blue-600 hover:underline">Admin</a>
+</nav>
+
 
         @isset($header)
             <header class="bg-gray-100 border-b">
