@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Models\FaqCategory;
 
 /*
 |--------------------------------------------------------------------------
@@ -75,6 +76,15 @@ Route::middleware('auth')->group(function () {
 */
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
      Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
+     Route::resource('faq-categories', \App\Http\Controllers\Admin\FaqCategoryController::class);
+     Route::resource('faqs', \App\Http\Controllers\Admin\FaqController::class);
  });
+
+ // Publieke FAQ-pagina
+Route::get('/faq', function () {
+     $categories = FaqCategory::with('faqs')->get();
+     return view('faq.index', compact('categories'));
+ })->name('faq.index');
+ 
 
 require __DIR__.'/auth.php';
