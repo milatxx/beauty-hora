@@ -33,6 +33,12 @@ public function news()
     return $this->hasMany(News::class);
 }
 
+public function comments()
+{
+    return $this->hasMany(Comment::class);
+}
+
+
     /**
      * The attributes that should be hidden for serialization.
      *

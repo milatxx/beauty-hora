@@ -101,6 +101,10 @@ Route::get('/bookings/create', [BookingController::class, 'create'])->middleware
 Route::post('/bookings', [BookingController::class, 'store'])->middleware('auth');
 Route::get('/admin/bookings', [BookingController::class, 'adminIndex'])->middleware('auth');
 
+// Reacties
+Route::post('/comments', [CommentController::class, 'store'])->middleware('auth')->name('comments.store');
+
+
 
  
 
