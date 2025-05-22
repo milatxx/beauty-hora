@@ -104,6 +104,13 @@ Route::get('/admin/bookings', [BookingController::class, 'adminIndex'])->middlew
 // Reacties
 Route::post('/comments', [CommentController::class, 'store'])->middleware('auth')->name('comments.store');
 
+// Admin‐only comment moderation
+Route::middleware(['auth', 'can:moderate,App\Models\Comment'])->group(function () {
+     Route::get('/admin/comments', [CommentController::class, 'index'])->name('comments.index');
+     Route::patch('/admin/comments/{comment}/approve', [CommentController::class, 'approve'])->name('comments.approve');
+     Route::delete('/admin/comments/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
+ });
+ 
 
 
  

@@ -43,9 +43,15 @@
 
         {{-- 💬 Comment List --}}
         <div class="mt-10">
-            <h3 class="text-xl font-semibold mb-4">Reacties ({{ $news->comments->count() }})</h3>
+        @php
+           $approvedCount = $news->comments()->where('approved', true)->count();
+        @endphp
 
-            @forelse ($news->comments as $comment)
+<h3 class="text-xl font-semibold mb-4">Reacties ({{ $approvedCount }})</h3>
+
+
+            @forelse ($news->comments()->where('approved', true)->latest()->get() as $comment)
+
                 <div class="mb-4 border rounded p-4 bg-gray-50">
                     <p class="font-medium">{{ $comment->user->name }}</p>
                     <p class="text-gray-800 mt-1">{{ $comment->body }}</p>
