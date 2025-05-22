@@ -8,6 +8,9 @@ use App\Models\FaqCategory;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\FaqSuggestionController;
+use App\Http\Controllers\FaqController;
+
 
 
 
@@ -85,11 +88,12 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
      Route::resource('faqs', \App\Http\Controllers\Admin\FaqController::class);
  });
 
- // Publieke FAQ-pagina
-Route::get('/faq', function () {
-     $categories = FaqCategory::with('faqs')->get();
-     return view('faq.index', compact('categories'));
- })->name('faq.index');
+ Route::middleware(['auth', 'can:admin'])->prefix('admin')->group(function () {
+     Route::get('/faq-suggestions', [FaqSuggestionController::class, 'index'])->name('faq.suggestions.index');
+     Route::post('/faq-suggestions/{id}/approve', [FaqSuggestionController::class, 'approve'])->name('faq.suggestions.approve');
+     Route::delete('/faq-suggestions/{id}', [FaqSuggestionController::class, 'destroy'])->name('faq.suggestions.destroy');
+ });
+ 
 
  // Contactpagina
 Route::get('/contact', [ContactController::class, 'create'])->name('contact.create');
@@ -110,9 +114,18 @@ Route::middleware(['auth', 'can:moderate,App\Models\Comment'])->group(function (
      Route::patch('/admin/comments/{comment}/approve', [CommentController::class, 'approve'])->name('comments.approve');
      Route::delete('/admin/comments/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
  });
+
+// FaqSuggestion
+Route::get('/faq/suggest', [FaqSuggestionController::class, 'create'])->name('faq.suggest');
+Route::post('/faq/suggest', [FaqSuggestionController::class, 'store'])->name('faq.suggest.store');
+
+// Admin‐only FAQ suggestion moderation
+Route::middleware(['auth', 'can:admin'])->prefix('admin/faq-suggestions')->group(function () {
+     Route::get('/', [FaqSuggestionController::class, 'index'])->name('faq.suggestions.index');
+     Route::post('/{id}/approve', [FaqSuggestionController::class, 'approve'])->name('faq.suggestions.approve');
+     Route::delete('/{id}', [FaqSuggestionController::class, 'destroy'])->name('faq.suggestions.destroy');
+ });
  
-
-
+ Route::get('/faq', [FaqController::class, 'index'])->name('faq.index');
  
-
 require __DIR__.'/auth.php';
