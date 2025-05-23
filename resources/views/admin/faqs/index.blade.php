@@ -1,5 +1,7 @@
-<x-app-layout>
-    <h1 class="text-xl font-bold mb-4">FAQ Vragen</h1>
+<x-admin-layout>
+    <x-slot name="header">
+        <h1 class="text-xl font-bold mb-4">FAQ Vragen</h1>
+     </x-slot>
 
     <a href="{{ route('admin.faqs.create') }}" class="bg-blue-500 text-white px-4 py-2 rounded mb-4 inline-block">
         ➕ Nieuwe vraag
@@ -21,4 +23,4 @@
             </div>
         </div>
     @endforeach
-</x-app-layout>
+</x-admin-layout>
