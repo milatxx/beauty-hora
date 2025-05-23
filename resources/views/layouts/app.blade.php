@@ -33,5 +33,14 @@
 </main>
 
         </div>
+        
+        <!-- Lucide iconen -->
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        lucide.createIcons();
+    });
+</script>
+
     </body>
 </html>
