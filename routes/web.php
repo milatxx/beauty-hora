@@ -11,6 +11,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\FaqSuggestionController;
 use App\Http\Controllers\FaqController;
+use App\Http\Controllers\Admin\UserController;
 
 
 
@@ -95,6 +96,12 @@ Route::middleware(['auth', 'can:admin'])->prefix('admin')->name('admin.')->group
      Route::post('/faq-suggestions/{id}/approve', [FaqSuggestionController::class, 'approve'])->name('faq.suggestions.approve');
      Route::delete('/faq-suggestions/{id}', [FaqSuggestionController::class, 'destroy'])->name('faq.suggestions.destroy');
  });
+
+ Route::middleware(['auth', 'can:admin'])->prefix('admin')->name('admin.')->group(function () {
+     Route::get('/users', [UserController::class, 'index'])->name('users.index');
+     Route::patch('/users/{user}/toggle-admin', [UserController::class, 'toggleAdmin'])->name('users.toggle-admin');
+ });
+ 
 
 
  // Contactpagina

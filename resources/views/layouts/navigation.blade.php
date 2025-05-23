@@ -57,6 +57,10 @@
                                 <x-dropdown-link :href="route('admin.dashboard')">
                                     📊 Admin Dashboard
                                 </x-dropdown-link>
+                                <x-dropdown-link :href="route('admin.users.index')">
+                                    👥 Gebruikersbeheer
+                                </x-dropdown-link>
+
                                 <x-dropdown-link :href="route('admin.faqs.index')">
                                     📚 FAQ beheer
                                 </x-dropdown-link>
