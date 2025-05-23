@@ -19,11 +19,13 @@
                 <p><strong>Gebruikersnaam:</strong> {{ $user->username }}</p>
                 <p><strong>Email:</strong> {{ $user->email }}</p>
                 <p><strong>Geboortedatum:</strong>
+                
                    {{ optional($user->birthday)->format('d-m-Y') ?? '-' }}
                 </p>
             </div>
 
             @if($user->about_me)
+            <p><strong>Over jezelf:</strong></p>
                 <div class="prose">
                     {!! nl2br(e($user->about_me)) !!}
                 </div>

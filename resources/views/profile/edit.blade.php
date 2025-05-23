@@ -43,12 +43,12 @@
 
                     <div class="mb-4">
                         <label class="block font-medium text-sm text-gray-700">Over jezelf</label>
-                        <textarea name="about" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">{{ old('about', $user->about) }}</textarea>
+                        <textarea name="about_me" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">{{ old('about_me', $user->about_me) }}</textarea>
                     </div>
 
                     <div class="mb-4">
                         <label class="block font-medium text-sm text-gray-700">Geboortedatum</label>
-                        <input type="date" name="birthday" value="{{ old('birthday', $user->birthday) }}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+                        <input type="date" name="birthday" value="{{ old('birthday', optional($user->birthday)->format('Y-m-d')) }}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
                     </div>
 
                     @if ($user->profile_photo)

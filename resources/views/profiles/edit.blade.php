@@ -45,11 +45,11 @@
                     </div>
 
                     <div class="mt-4">
-                        <x-input-label for="about" :value="__('Over mij')" />
-                        <textarea id="about" name="about"
+                        <x-input-label for="about_me" :value="__('Over mij')" />
+                        <textarea id="about_me" name="about_me"
                                   class="block mt-1 w-full border-gray-300 rounded-md"
-                                  rows="4">{{ old('about', $user->about) }}</textarea>
-                        <x-input-error :messages="$errors->get('about')" class="mt-2" />
+                                  rows="4">{{ old('about_me', $user->about_me) }}</textarea>
+                        <x-input-error :messages="$errors->get('about_me')" class="mt-2" />
                     </div>
 
                     <div class="mt-4">
