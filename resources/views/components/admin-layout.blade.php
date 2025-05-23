@@ -45,4 +45,17 @@
         </main>
     </div>
 </body>
+<footer class="bg-white border-t mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-center justify-between text-gray-600 text-sm">
+        <div class="mb-4 sm:mb-0">
+            &copy; {{ date('Y') }} Beauty Hora. All rights reserved.
+        </div>
+        <div class="flex space-x-6">
+            <a href="{{ route('faq.index') }}" class="hover:text-blue-600 transition">FAQ</a>
+            <a href="{{ route('contact.create') }}" class="hover:text-blue-600 transition">Contact</a>
+            <a href="{{ route('news.index') }}" class="hover:text-blue-600 transition">Nieuws</a>
+        </div>
+    </div>
+</footer>
+
 </html>

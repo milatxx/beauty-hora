@@ -30,7 +30,7 @@ class NewsPolicy
      */
     public function create(User $user)
     {
-        return $user->isAdmin();
+        return $user->is_admin();
     }
 
     /**
