@@ -5,6 +5,7 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Models\FaqCategory;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\BookingController;
@@ -82,7 +83,7 @@ Route::middleware('auth')->group(function () {
 | Admin Routes
 |--------------------------------------------------------------------------
 */
-Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
+Route::middleware(['auth', 'can:admin'])->prefix('admin')->name('admin.')->group(function () {
      Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
      Route::resource('faq-categories', \App\Http\Controllers\Admin\FaqCategoryController::class);
      Route::resource('faqs', \App\Http\Controllers\Admin\FaqController::class);
@@ -93,7 +94,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
      Route::post('/faq-suggestions/{id}/approve', [FaqSuggestionController::class, 'approve'])->name('faq.suggestions.approve');
      Route::delete('/faq-suggestions/{id}', [FaqSuggestionController::class, 'destroy'])->name('faq.suggestions.destroy');
  });
- 
+
 
  // Contactpagina
 Route::get('/contact', [ContactController::class, 'create'])->name('contact.create');
@@ -125,7 +126,7 @@ Route::middleware(['auth', 'can:admin'])->prefix('admin/faq-suggestions')->group
      Route::post('/{id}/approve', [FaqSuggestionController::class, 'approve'])->name('faq.suggestions.approve');
      Route::delete('/{id}', [FaqSuggestionController::class, 'destroy'])->name('faq.suggestions.destroy');
  });
- 
+
  Route::get('/faq', [FaqController::class, 'index'])->name('faq.index');
- 
+
 require __DIR__.'/auth.php';

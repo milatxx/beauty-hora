@@ -49,4 +49,4 @@
             </div>
         </div>
     </div>
-</x-adminlayout>
+</x-admin-layout>

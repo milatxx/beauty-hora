@@ -1,4 +1,4 @@
-<x-adminlayout>
+<x-admin-layout>
     <x-slot name="header">
         <h2 class="text-2xl font-bold text-gray-900">💆‍♀️ Beschikbare Diensten</h2>
     </x-slot>
@@ -16,4 +16,4 @@
             </div>
         </div>
     </div>
-</x-adminlayout>
+</x-admin-layout>
