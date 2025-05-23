@@ -31,7 +31,7 @@
                     <div class="flex space-x-6">
                         <a href="/admin/faq-categories" class="text-blue-600 px-4 hover:underline">FAQ Categories</a>
                         <a href="/admin/faqs" class="text-blue-600 px-4 hover:underline">FAQ</a>
-                        <a href="/services" class="text-blue-600 px-4 hover:underline">Diensten</a>
+                        <a href="/admin/services" class="text-blue-600 px-4 hover:underline">Diensten</a>
                         <a href="/bookings/create" class="text-blue-600 px-4 hover:underline">Boek nu</a>
                         <a href="/admin/bookings" class="text-blue-600 px-4 hover:underline">Admin</a>
                     </div>

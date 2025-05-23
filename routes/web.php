@@ -86,7 +86,8 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth', 'can:admin'])->prefix('admin')->name('admin.')->group(function () {
      Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
      Route::resource('faq-categories', \App\Http\Controllers\Admin\FaqCategoryController::class);
-    Route::resource('faqs', FaqController::class);
+     Route::resource('faqs', \App\Http\Controllers\Admin\FaqController::class);
+     Route::resource('services', \App\Http\Controllers\Admin\ServiceController::class)->except(['show']);
 });
 
  Route::middleware(['auth', 'can:admin'])->prefix('admin')->group(function () {
