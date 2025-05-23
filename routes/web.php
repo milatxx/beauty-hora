@@ -24,7 +24,7 @@ use App\Http\Controllers\Admin\UserController;
 
 // Welcome‐pagina
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard');
 });
 
 // Public profielpagina
@@ -101,7 +101,7 @@ Route::middleware(['auth', 'can:admin'])->prefix('admin')->name('admin.')->group
      Route::get('/users', [UserController::class, 'index'])->name('users.index');
      Route::patch('/users/{user}/toggle-admin', [UserController::class, 'toggleAdmin'])->name('users.toggle-admin');
  });
- 
+
 
 
  // Contactpagina
