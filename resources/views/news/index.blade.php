@@ -4,10 +4,16 @@
             <h2 class="text-3xl font-bold text-gray-900 flex items-center gap-2">
                 📰 Nieuws
             </h2>
-            <a href="{{ route('news.create') }}"
-               class="inline-flex items-center bg-blue-600 text-black font-semibold px-4 py-2 rounded-md hover:bg-blue-700 transition">
-                ➕ Nieuw item
-            </a>
+
+            @auth
+                @if(Auth::user()->is_admin)
+                    <a href="{{ route('news.create') }}"
+                        class="inline-flex items-center bg-blue-600 text-black font-semibold px-4 py-2 rounded-md hover:bg-blue-700 transition">
+                        ➕ Nieuw item
+                    </a>
+                @endif
+            @endauth
+
         </div>
 
         @if($news->isEmpty())

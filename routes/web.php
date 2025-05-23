@@ -47,7 +47,7 @@ Route::get('/news', [NewsController::class, 'index'])
      ->name('news.index');
 
 // 2) Admin‐only CRUD (create, store, edit, update, destroy)
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'can:admin'])->group(function () {
     Route::get('/news/create', [NewsController::class, 'create'])
          ->name('news.create');
     Route::post('/news', [NewsController::class, 'store'])
@@ -128,6 +128,6 @@ Route::middleware(['auth', 'can:admin'])->prefix('admin/faq-suggestions')->group
      Route::delete('/{id}', [FaqSuggestionController::class, 'destroy'])->name('faq.suggestions.destroy');
  });
 
- Route::get('/faq', [FaqController::class, 'index'])->name('faq.index');
+ Route::get('/faq', [\App\Http\Controllers\FaqController::class, 'index'])->name('faq.index');
 
 require __DIR__.'/auth.php';

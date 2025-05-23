@@ -10,21 +10,20 @@ class FaqController extends Controller
 {
     public function index()
     {
-        $faqs = Faq::with('category')->get();
-
-        return view('admin.faqs.index', compact('faqs'));
+        $categories = FaqCategory::with('faqs')->get();
+        return view('faq.index', compact('categories'));
     }
 
     public function create()
     {
         $categories = FaqCategory::all();
-        return view('admin.faqs.create', compact('categories'));
+        return view('faq.create', compact('categories'));
     }
 
     public function edit($id)
     {
         $faq = Faq::findOrFail($id);
         $categories = FaqCategory::all();
-        return view('admin.faqs.edit', compact('faq', 'categories'));
+        return view('faq.edit', compact('faq', 'categories'));
     }
 }
