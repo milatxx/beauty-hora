@@ -21,15 +21,18 @@
         @else
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 @foreach($news as $item)
-                    <div class="bg-white border border-gray-200 rounded-lg shadow-sm p-6 hover:shadow-md transition">
-                        <h3 class="text-lg font-bold text-gray-800 mb-2">{{ $item->title }}</h3>
-                        <p class="text-sm text-gray-700 mb-3 line-clamp-3">
-                            {{ $item->body }}
-                        </p>
-                        <div class="text-xs text-gray-500">
-                            🗓️ Gepubliceerd op {{ \Carbon\Carbon::parse($item->published_at)->format('d/m/Y') }}
+                    <a href="{{ route('news.show', $item->id) }}" class="block">
+                        <div class="bg-white border border-gray-200 rounded-lg shadow-sm p-6 hover:shadow-md transition">
+                            <h3 class="text-lg font-bold text-gray-800 mb-2">{{ $item->title }}</h3>
+                            <p class="text-sm text-gray-700 mb-3 line-clamp-3">
+                                {{ $item->body }}
+                            </p>
+                            <div class="text-xs text-gray-500">
+                                🗓️ Gepubliceerd op {{ \Carbon\Carbon::parse($item->published_at)->format('d/m/Y') }}
+                            </div>
                         </div>
-                    </div>
+                    </a>
+
                 @endforeach
             </div>
 
