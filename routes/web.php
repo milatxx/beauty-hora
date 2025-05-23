@@ -102,6 +102,11 @@ Route::middleware(['auth', 'can:admin'])->prefix('admin')->name('admin.')->group
      Route::patch('/users/{user}/toggle-admin', [UserController::class, 'toggleAdmin'])->name('users.toggle-admin');
  });
  
+ Route::middleware(['can:create,App\Models\News'])->group(function () {
+     Route::get('/news/create', [NewsController::class, 'create'])->name('news.create');
+     Route::post('/news', [NewsController::class, 'store'])->name('news.store');
+ });
+ 
 
 
  // Contactpagina
