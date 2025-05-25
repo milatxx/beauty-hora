@@ -1,66 +1,128 @@
-<<<<<<< HEAD
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
-
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
-
-## About Laravel
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development/)**
-- **[Active Logic](https://activelogic.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-=======
 # beauty-hora
 project voor backend web
->>>>>>> 6f9253808117f8adde49ce9d96591b18a55f2a6d
+# 💇‍♀️ Beauty Hora — Laravel 12 Webapp
+
+**Beauty Hora** is een dynamische webapplicatie gebouwd met Laravel 12, als eindproject voor het vak **Backend Web**.
+
+---
+
+## 🌐 Projectbeschrijving
+
+Beauty Hora is een professionele schoonheidssalon met boekingssysteem, nieuws, FAQ, gebruikersbeheer en meer. Zowel bezoekers als ingelogde gebruikers kunnen ermee werken. Admins hebben toegang tot contentbeheer en moderatiepanelen.
+
+---
+
+## ⚙️ Functionaliteiten
+
+### 👤 Authenticatie
+
+- Registreer / Login / Wachtwoord vergeten
+- 'Remember me' functionaliteit
+- Eén default admin account (zie onderaan)
+
+### 👥 Gebruikersbeheer
+
+- Publieke profielpagina voor elke gebruiker
+- Gebruiker kan eigen gegevens bewerken (foto, bio, naam, verjaardag)
+- Admins kunnen andere gebruikers admin maken of verwijderen
+
+### 📰 Nieuwsitems
+
+- Admins kunnen nieuws toevoegen, bewerken, verwijderen
+- Publiek kan alle nieuws bekijken (lijst + detail)
+- Inhoud: titel, afbeelding, content, publicatiedatum
+
+### 💬 Commentaren
+
+- Ingelogde gebruikers kunnen reageren op nieuwsitems
+- Admins modereren reacties
+
+### ❓ FAQ
+
+- Bezoekers zien FAQ per categorie
+- Admins kunnen vragen + categorieën beheren
+- Bezoekers kunnen vragen voorstellen
+- Admins keuren suggesties goed (of niet)
+
+### 📅 Boeking systeem
+
+- Auth-gebruikers kunnen een afspraak boeken
+- Admin ziet alle boekingen in overzicht
+
+### 📞 Contactformulier
+
+- Bezoekers kunnen contact opnemen
+- Admin ontvangt mail bij verzending
+
+### 🛠 Extra's
+
+- Specialisaties many-to-many (tussen users en services)
+- Adminpanel voor specialisatiebeheer
+- Mooi navmenu afhankelijk van rol (admin/user)
+- Mooie loginpagina met achtergrond
+
+---
+
+## 🗃 Models & Relaties
+
+- **User ↔ Services** (many-to-many)
+- **News → Comments** (one-to-many)
+- **FaqCategory → Faq** (one-to-many)
+- **User → News** (one-to-many auteurrelatie)
+
+---
+
+## 📁 Structuur en Bestanden
+
+Alle routes via controllers  
+Alle forms met CSRF  
+Client-side validation  
+Auth policies voor rechtenbeheer  
+Gebruik van Laravel components (nav-link, layouts, dropdowns)
+
+---
+
+## 🧪 Installatiehandleiding
+
+1. Clone de repo:
+   ```bash
+   git clone <https://github.com/milatxx/beauty-hora>
+   cd beauty-hora
+
+2. Installeer dependencies:
+   composer install
+   npm install && npm run build
+
+3. Configureer .env:
+   cp .env.example .env
+   php artisan key:generate
+
+4. Run migraties + seeders:
+   php artisan migrate:fresh --seed
+
+5. Start lokale server:
+   php artisan serve
+
+6. (Optioneel) Link storage:
+   php artisan storage:link
+
+## 🧪 Default admin account
+
+Rol: Admin
+
+Email: admin@ehb.be
+
+Wachtwoord: Password!321
+
+## 📷 Screenshots
+
+(Screenshots toevoegen van dashboard, profiel, booking, nieuws, adminpanelen...)
+
+## 📚 Gebruikte bronnen
+
+- Laravel Docs
+- Laravel Breeze
+- Lucide Icons
+- ChatGPT (assistentie bij debugging en structuur)
+
+Laatste update: 25-05-2025
