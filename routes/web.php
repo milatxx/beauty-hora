@@ -89,6 +89,7 @@ Route::middleware(['auth', 'can:admin'])->prefix('admin')->name('admin.')->group
      Route::resource('faq-categories', \App\Http\Controllers\Admin\FaqCategoryController::class);
      Route::resource('faqs', \App\Http\Controllers\Admin\FaqController::class);
      Route::resource('services', \App\Http\Controllers\Admin\ServiceController::class)->except(['show']);
+     Route::resource('specializations', \App\Http\Controllers\Admin\SpecializationController::class);
 });
 
  Route::middleware(['auth', 'can:admin'])->prefix('admin')->group(function () {

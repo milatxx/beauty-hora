@@ -61,6 +61,10 @@
                                     👥 Gebruikersbeheer
                                 </x-dropdown-link>
 
+                                <x-dropdown-link :href="route('admin.specializations.index')">
+                                    🧬 Specialisaties
+                                </x-dropdown-link>
+
                                 <x-dropdown-link :href="route('admin.faqs.index')">
                                     📚 FAQ beheer
                                 </x-dropdown-link>
@@ -162,6 +166,11 @@
                     <x-responsive-nav-link :href="route('admin.dashboard')">
                         Admin Dashboard
                     </x-responsive-nav-link>
+
+                    <x-responsive-nav-link :href="route('admin.specializations.index')">
+                        Specialisaties
+                    </x-responsive-nav-link>
+
                     <x-responsive-nav-link :href="route('admin.faqs.index')">
                         FAQ beheer
                     </x-responsive-nav-link>
