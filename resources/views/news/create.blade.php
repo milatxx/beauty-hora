@@ -4,6 +4,16 @@
             <h2 class="text-3xl font-bold text-gray-900 mb-10 flex items-center gap-2">
                 🆕 Nieuws toevoegen
             </h2>
+              
+            @if ($errors->any())
+    <div class="bg-red-100 text-red-700 p-4 rounded mb-6">
+        <ul class="list-disc list-inside">
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
             <form action="{{ route('news.store') }}" method="POST" enctype="multipart/form-data" class="space-y-8">
                 @csrf
@@ -17,8 +27,8 @@
 
                 <!-- Inhoud -->
                 <div>
-                    <label for="body" class="block text-sm font-semibold text-gray-800 mb-2">Inhoud</label>
-                    <textarea id="body" name="body" rows="6" required
+                    <label for="content" class="block text-sm font-semibold text-gray-800 mb-2">Inhoud</label>
+                    <textarea id="content" name="content" rows="6" required
                         class="w-full border border-gray-300 rounded-lg px-5 py-3 shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
                         placeholder="Typ hier je nieuwsbericht..."></textarea>
                 </div>

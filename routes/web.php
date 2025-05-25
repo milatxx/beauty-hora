@@ -25,7 +25,7 @@ use App\Http\Controllers\Admin\UserController;
 // Welcome‐pagina
 Route::get('/', function () {
     return view('dashboard');
-});
+})->middleware(['auth', 'verified'])->name('dashboard');
 
 // Public profielpagina
 Route::get('/profiles/{user}', [ProfileController::class, 'show'])

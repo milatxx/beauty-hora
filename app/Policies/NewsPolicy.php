@@ -30,7 +30,7 @@ class NewsPolicy
      */
     public function create(User $user)
     {
-        return $user->is_admin();
+        return $user->is_admin;
     }
 
     /**
@@ -38,7 +38,7 @@ class NewsPolicy
      */
     public function update(User $user, News $news)
     {
-        return $user->isAdmin();
+        return $user->is_admin;
     }
 
     /**
@@ -46,7 +46,7 @@ class NewsPolicy
      */
     public function delete(User $user, News $news)
     {
-        return $user->isAdmin();
+        return $user->is_admin;
     }
 
     /**
