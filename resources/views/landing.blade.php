@@ -1,8 +1,7 @@
 <x-guest-layout>
-    <div class="min-h-screen bg-cover bg-center flex items-center justify-center"
-         style="background-image: url('/storage/beauty-hora.png');">
+    
 
-        <div class="bg-white bg-opacity-80 backdrop-blur-md p-10 rounded-2xl shadow-xl w-full max-w-md text-center">
+        <div class="bg-white bg-opacity-80 backdrop-blur-md p-10 rounded-2xl shadow-none w-full max-w-md text-center">
             <h1 class="text-3xl font-bold text-gray-800 mb-4">Welkom bij Beauty Hóra</h1>
             <p class="text-sm text-gray-600 mb-8">Health & Skin Clinic</p>
 
