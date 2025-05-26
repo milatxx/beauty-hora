@@ -13,12 +13,13 @@ use App\Models\User;
 
 class ProfileController extends Controller
 {
-    public function show(User $user): View
+    public function show(User $user)
     {
+        $user->load('specializations');
         return view('profiles.show', compact('user'));
     }
 
-    public function edit(Request $request): View
+    public function edit(Request $request)
     {
         return view('profile.edit', [
             'user' => $request->user(),

@@ -37,6 +37,11 @@ public function comments()
 {
     return $this->hasMany(Comment::class);
 }
+public function specializations()
+{
+    return $this->belongsToMany(Specialization::class);
+}
+
 
 
     /**

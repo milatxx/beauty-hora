@@ -108,6 +108,15 @@ Route::middleware(['auth', 'can:admin'])->prefix('admin')->name('admin.')->group
      Route::post('/news', [NewsController::class, 'store'])->name('news.store');
  });
 
+ Route::middleware(['auth', 'can:admin'])->prefix('admin')->name('admin.')->group(function () {
+     Route::get('/users', [UserController::class, 'index'])->name('users.index');
+     Route::patch('/users/{user}/toggle-admin', [UserController::class, 'toggleAdmin'])->name('users.toggle-admin');
+     Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
+     Route::patch('/users/{user}', [UserController::class, 'update'])->name('users.update');
+ });
+ 
+ 
+
 
 
  // Contactpagina

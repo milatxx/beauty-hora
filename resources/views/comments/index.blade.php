@@ -10,7 +10,7 @@
 
         @forelse($comments as $comment)
             <div class="bg-white p-4 shadow rounded mb-4">
-                <p class="text-gray-800 mb-2">{{ $comment->content }}</p>
+                <p class="text-gray-800 mb-2">{{ $comment->body }}</p>
                 <p class="text-sm text-gray-500">Door: {{ $comment->user->name }} op {{ $comment->created_at->format('d/m/Y H:i') }}</p>
 
                 <div class="mt-3 flex gap-2">

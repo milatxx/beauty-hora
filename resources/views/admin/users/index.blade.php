@@ -35,6 +35,7 @@
                                 @endif
                             </td>
                             <td class="px-6 py-4">
+                            <div class="flex flex-col sm:flex-row sm:space-x-2 space-y-2 sm:space-y-0">
                                 <form method="POST" action="{{ route('admin.users.toggle-admin', $user) }}">
                                     @csrf
                                     @method('PATCH')
@@ -46,6 +47,16 @@
                                         @endif
                                     </button>
                                 </form>
+                                <a href="{{ route('admin.users.edit', $user) }}"
+                                   class="text-sm bg-gray-200 text-gray-800 hover:bg-gray-300 font-medium py-1 px-3 rounded">
+                                    ✏️ Bewerken
+                                </a>
+
+                                <a href="{{ route('profiles.show', $user) }}"
+                                   class="text-sm bg-blue-100 text-blue-800 hover:bg-blue-200 font-medium py-1 px-3 rounded">
+                                    🔍 Profiel
+                                </a>
+                            </div>
                             </td>
                         </tr>
                     @endforeach

@@ -15,4 +15,9 @@ class Specialization extends Model
     {
         return $this->belongsToMany(Service::class);
     }
+    public function users()
+{
+    return $this->belongsToMany(User::class);
+}
+
 }
