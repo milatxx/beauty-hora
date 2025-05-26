@@ -19,19 +19,21 @@
         @if($news->isEmpty())
             <p class="text-gray-500 text-center mt-12">Er zijn nog geen nieuwsitems toegevoegd.</p>
         @else
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="flex flex-col gap-4">
                 @foreach($news as $item)
                     <a href="{{ route('news.show', $item->id) }}" class="block">
-                        <div class="bg-white border border-gray-200 rounded-lg shadow-sm p-6 hover:shadow-md transition">
-                            <h3 class="text-lg font-bold text-gray-800 mb-2">{{ $item->title }}</h3>
-                            <p class="text-sm text-gray-700 mb-3 line-clamp-3">
+                    <div class="flex flex-col sm:flex-row bg-white border border-gray-200 rounded-lg shadow-sm p-4 hover:shadow-md transition">
+                    <div class="flex-1">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-1">{{ $item->title }}</h3>        
+                            <p class="text-sm text-gray-700 mb-3 line-clamp-2">
                                 {{ $item->body }}
                             </p>
                             <div class="text-xs text-gray-500">
                                 🗓️ Gepubliceerd op {{ \Carbon\Carbon::parse($item->published_at)->format('d/m/Y') }}
                             </div>
                         </div>
-                    </a>
+                    </div>
+                </a>
 
                 @endforeach
             </div>
