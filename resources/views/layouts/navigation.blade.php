@@ -33,9 +33,14 @@
                         <x-nav-link href="/bookings/create" :active="request()->is('bookings/create')">
                             <i data-lucide="calendar-plus" class="w-4 h-4 inline me-1"></i>Boek nu
                         </x-nav-link>
+                        @auth
+                    @unless(Auth::user()->is_admin)
                         <x-nav-link :href="route('bookings.my')" :active="request()->routeIs('bookings.my')">
-                            <i data-lucide="calendar-days" class="w-4 h-4 inline me-1"></i>Mijn Boekingen
+                        <i data-lucide="calendar-days" class="w-4 h-4 inline me-1"></i>Mijn Boekingen
                         </x-nav-link>
+                    @endunless
+                    @endauth
+
 
                     @endauth
                 </div>
@@ -165,9 +170,14 @@
                 <x-responsive-nav-link href="/bookings/create" :active="request()->is('bookings/create')">
                     Boek nu
                 </x-responsive-nav-link>
+            @auth
+            @unless(Auth::user()->is_admin)
                 <x-responsive-nav-link :href="route('bookings.my')" :active="request()->routeIs('bookings.my')">
                     Mijn Boekingen
                 </x-responsive-nav-link>
+            @endunless
+            @endauth
+
 
 
                 @if(Auth::user()->is_admin)

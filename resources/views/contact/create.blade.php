@@ -5,6 +5,12 @@
 
     <div class="py-8">
         <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
+        @if(session('success'))
+    <div class="mb-4 px-4 py-3 bg-green-100 border border-green-300 text-green-800 rounded">
+        {{ session('success') }}
+    </div>
+        @endif
+
             <div class="bg-white shadow-md rounded-xl p-6 border border-gray-200">
                 <form method="POST" action="{{ route('contact.store') }}" class="space-y-6">
                     @csrf

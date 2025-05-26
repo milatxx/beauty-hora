@@ -18,6 +18,12 @@
 
         {{-- 🗨️ Comment Form --}}
         <h2 class="text-2xl font-semibold mb-4">Reageer</h2>
+        @if(session('success'))
+               <div class="bg-green-100 border border-green-300 text-green-800 px-4 py-3 rounded mb-6">
+            {{ session('success') }}
+               </div>
+        @endif
+
 
         @auth
             <form method="POST" action="{{ route('comments.store') }}" class="space-y-4">
