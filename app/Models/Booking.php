@@ -13,6 +13,7 @@ class Booking extends Model
         'date',
         'time',
         'notes',
+        'status', 
     ];
 
     public function service(): BelongsTo

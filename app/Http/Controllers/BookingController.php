@@ -25,7 +25,10 @@ class BookingController extends Controller
             'notes' => $request->notes,
         ]);
 
-        return redirect('/')->with('success', 'Boeking geplaatst!');
+        return redirect('/services')->with('success', 'Boeking geplaatst!');
+        return back()->with('success', 'Boeking succesvol toegevoegd!');
+
+
     }
 
     public function adminIndex()
@@ -33,4 +36,29 @@ class BookingController extends Controller
         $bookings = Booking::with('service', 'user')->latest()->get();
         return view('admin.bookings.index', compact('bookings'));
     }
+
+    public function myBookings()
+{
+    $bookings = \App\Models\Booking::with('service')
+        ->where('user_id', Auth::id())
+        ->latest()
+        ->orderBy('date', 'asc')
+        ->get();
+
+
+    return view('bookings.my', compact('bookings'));
+}
+
+public function cancel(Booking $booking)
+{
+    if ($booking->user_id !== Auth::id()) {
+        abort(403); // toegang geweigerd
+    }
+
+    $booking->update(['status' => 'geannuleerd']);
+
+    return back()->with('success', 'Boeking succesvol geannuleerd.');
+}
+
+
 }

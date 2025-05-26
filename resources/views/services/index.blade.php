@@ -1,4 +1,11 @@
 <x-app-layout>
+<div class="max-w-3xl mx-auto mt-6">
+@if(session('success'))
+    <div class="bg-green-100 border border-green-300 text-green-800 px-4 py-3 rounded mb-4">
+        {{ session('success') }}
+    </div>
+@endif
+
     <h2 class="text-2xl font-bold text-gray-900">💆‍♀️ Beschikbare Diensten</h2>
 
     <div class="py-8">

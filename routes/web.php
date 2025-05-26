@@ -119,6 +119,15 @@ Route::get('/services', [ServiceController::class, 'index']);
 Route::get('/bookings/create', [BookingController::class, 'create'])->middleware('auth');
 Route::post('/bookings', [BookingController::class, 'store'])->middleware('auth');
 Route::get('/admin/bookings', [BookingController::class, 'adminIndex'])->middleware('auth');
+// Mijn boekingen voor gebruikers
+Route::get('/my-bookings', [BookingController::class, 'myBookings'])
+     ->middleware('auth')
+     ->name('bookings.my');
+     Route::delete('/my-bookings/{booking}', [BookingController::class, 'cancel'])
+     ->middleware('auth')
+     ->name('bookings.cancel');
+ 
+
 
 // Reacties
 Route::post('/comments', [CommentController::class, 'store'])->middleware('auth')->name('comments.store');
