@@ -8,7 +8,7 @@ project voor backend web
 
 ## 🌐 Projectbeschrijving
 
-Beauty Hora is een professionele schoonheidssalon met boekingssysteem, nieuws, FAQ, gebruikersbeheer en meer. Zowel bezoekers als ingelogde gebruikers kunnen ermee werken. Admins hebben toegang tot contentbeheer en moderatiepanelen.
+Beauty Hora is een professionele schoonheidssalon website met boekingssysteem, nieuws, FAQ, gebruikersbeheer en meer. Zowel bezoekers als ingelogde gebruikers kunnen ermee werken. Admins hebben toegang tot contentbeheer en moderatiepanelen.
 
 ---
 
@@ -114,9 +114,91 @@ Email: admin@ehb.be
 
 Wachtwoord: Password!321
 
-## 📷 Screenshots
+## 📸 Screenshots
+### 🔐 Authenticatie
 
-(Screenshots toevoegen van dashboard, profiel, booking, nieuws, adminpanelen...)
+#### Loginpagina  
+![Login](public/screenshots/login.png)
+
+#### Registerpagina  
+![Register](public/screenshots/register.png)
+
+---
+
+### 🏠 Publieke Pagina’s
+
+#### Homepagina / Dashboard  
+![Dashboard](public/screenshots/dashboard.png)
+
+#### Profielpagina (publiek en bewerkbaar)  
+![Profiel](public/screenshots/profile.png)
+![Profiel](public/screenshots/profileedit.png)
+
+---
+
+### 📰 Nieuws
+
+#### Overzichtspagina van nieuwsitems  
+![Nieuws Overzicht](public/screenshots/news-overview.png)
+
+#### Detailpagina van één nieuwsitem  
+![Nieuws Detail](public/screenshots/news-detail.png)
+
+---
+
+### 💬 Commentaren
+
+#### Nieuwsitem met reacties van gebruikers  
+![Nieuws met Reacties](public/screenshots/news-comments.png)
+
+#### Adminpaneel om reacties te modereren  
+![Reactie Moderatie](public/screenshots/admin-comments.png)
+
+---
+
+### 📚 FAQ
+
+#### Publieke FAQ-pagina (met categorieën)  
+![FAQ Publiek](public/screenshots/faq.png)
+
+#### Adminpaneel om FAQ & categorieën te beheren  
+![FAQ Admin](public/screenshots/admin-faq.png)
+![FAQ Admin](public/screenshots/admin-faq2.png)
+
+---
+
+
+### 📅 Boekingen
+
+#### Boekingsformulier voor gebruikers  
+![Boekingsformulier](public/screenshots/booking-form.png)
+
+#### Admin-overzicht van boekingen  
+![Boekingen Admin](public/screenshots/admin-bookings.png)
+
+---
+
+### 📞 Contact
+
+#### Contactformulier  
+![Contactformulier](public/screenshots/contact-form.png)
+
+---
+
+### 🧑‍💼 Adminbeheer
+
+#### Admin dashboard  
+![Admin Dashboard](public/screenshots/admin-dashboard.png)
+
+#### Gebruikerslijst met admin-toggle  
+![Gebruikerslijst](public/screenshots/admin-users.png)
+
+#### Specialisaties beheren  
+![Specialisaties](public/screenshots/admin-specialties.png)
+
+#### Services beheren  
+![Services](public/screenshots/admin-services.png)
+
 
 ## 📚 Gebruikte bronnen
 
@@ -125,4 +207,4 @@ Wachtwoord: Password!321
 - Lucide Icons
 - ChatGPT (assistentie bij debugging en structuur)
 
-Laatste update: 25-05-2025
+Laatste update: 27-05-2025
