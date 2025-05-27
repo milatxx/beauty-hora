@@ -82,6 +82,26 @@ Gebruik van Laravel components (nav-link, layouts, dropdowns)
 
 ---
 
+## 🛠 Technische implementatie (met lijnnummers)
+Hieronder een overzicht van de belangrijkste vereisten en waar ze terug te vinden zijn in de code:
+
+| Vereiste                        | Bestandslocatie(s)                                                                 | Regel(s) / Beschrijving                                                                 |
+|--------------------------------|-------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|
+| 🔐 Login/Register/Reset        | `routes/auth.php`, `app/Http/Controllers/Auth/*`                                   | Standaard via Laravel Breeze                                                            |
+| 🛡️ Admin middleware            | `routes/web.php`                                                                   | Lijnen **47–70**, bv. `Route::middleware(['auth', 'can:admin'])`                        |
+| 👤 Profielpagina publiek        | `routes/web.php`, `ProfileController@show`                                         | Route op lijn **28** + controller `show()` methode                                      |
+| ✏️ Profiel bewerken            | `routes/web.php`, `ProfileController@edit/update`                                  | Lijnen **63–65** + controller methoden                                                  |
+| 📰 Nieuws CRUD (admin)         | `routes/web.php`, `NewsController`                                                 | Routes op lijnen **47–55**, controller bevat `create`, `store`, `edit`, `update`, ...  |
+| 🌍 Nieuws publiek zichtbaar    | `routes/web.php`, `NewsController@index/show`                                      | Lijnen **42–44 & 57–58**                                                                |
+| 💬 Comments (1:N)              | `app/Models/News.php`, `Comment.php`, `routes/web.php`, `CommentController`        | `comments()` relatie in `News.php`, `store()` in `CommentController`                   |
+| 🧹 Comment moderatie (admin)   | `routes/web.php`, `CommentController@index/approve/destroy`                        | Routes op **110–113**, logica in controller                                            |
+| ❓ FAQ & categorieën (admin)   | `routes/web.php`, `FaqController`, `FaqCategoryController`                         | Resource controllers, lijnen **73–75**                                                  |
+| 💡 FAQ suggesties              | `routes/web.php`, `FaqSuggestionController`                                        | Lijnen **116–121**, controller `create`, `store`, `approve`, `destroy`                 |
+| 📅 Boekingen CRUD              | `routes/web.php`, `BookingController`                                              | Lijnen **85–92**, methodes `create`, `store`, `myBookings`, `cancel`                   |
+| 📧 Contactformulier + mail     | `routes/web.php`, `ContactController@create/store`, `Mail::to()`                   | Lijnen **78–79**, mail verzonden in `store()`                                           |
+| 🧬 Specialisaties many-to-many | `User.php`, `Service.php`, pivot table + `Admin/SpecializationController`         | `belongsToMany()` relatie in beide models + admin CRUD                                  |
+
+
 ## 🧪 Installatiehandleiding
 
 1. Clone de repo:
